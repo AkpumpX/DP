@@ -11,6 +11,7 @@ thinkorswim paperMoney.
 | [`docs/01-bookmap-explained.md`](docs/01-bookmap-explained.md) | Step-by-step: the four data layers, the five readable order-flow phenomena, session workflow, and the three legitimate ways to attach Bookmap to an existing strategy |
 | [`docs/02-strategy-ev-framework.md`](docs/02-strategy-ev-framework.md) | The expected-value math, the sample-size problem, and the measurement protocol |
 | [`docs/03-tos-paper-automation.md`](docs/03-tos-paper-automation.md) | What thinkorswim can and cannot automate, the three build tiers, and the fill-realism warning |
+| [`docs/04-bookmap-platform-reference.md`](docs/04-bookmap-platform-reference.md) | Bookmap packages, connectivity, replay mode, and its add-on API — plus the revised venue recommendation |
 
 ## Run it
 
@@ -42,11 +43,17 @@ adds value.
    support paper accounts.** "Fully automatic" and "paper money" are mutually exclusive
    inside this platform. Details and the alternatives in `docs/03`.
 
+**But not across platforms:** Bookmap's own add-on API (Java, or Python for L1) runs
+arbitrary automated strategies against replay/simulation or a demo account, on real
+recorded order-book data. If your edge is order-flow based, that is where it should be
+automated — `docs/04` §4 and §6.
+
 ## Open items
 
-- The supplied YouTube link is blocked by this environment's network egress proxy and
-  could not be watched. If it teaches a specific named setup, send the title or
-  transcript and `docs/01` gets amended.
+- `youtu.be`, `bit.ly`, and `bookmap.com` are all blocked by this environment's network
+  egress proxy (gateway 403 on CONNECT). `docs/04` was assembled from bookmap.com's
+  documentation via server-side search instead. Pricing figures are deliberately absent
+  because the pricing page could not be loaded — verify them yourself.
 - **Your actual strategies are not defined anywhere.** This repo contained only an
   unrelated script when this work started. Send the strategy names + one-line rules +
   instrument, and the templates get rewritten to encode *your* rules instead of the two

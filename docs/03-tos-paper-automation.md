@@ -19,6 +19,9 @@ thinkorswim.** Pick which one matters more this month. My recommendation is
 paper-money-with-semi-automation first, because the measurement problem from
 `02-strategy-ev-framework.md` is your actual bottleneck — not execution speed.
 
+If you need both at once, you need a different venue — and Bookmap itself is
+that venue. See `04-bookmap-platform-reference.md` §4 and §6.
+
 ## 2. The three tiers, in the order you should build them
 
 ### Tier 0 — Measurement (build this week)
@@ -63,13 +66,21 @@ thinkorswim cannot do it, so it happens outside. Options, honestly ranked:
 | **Interactive Brokers paper + IB API** | Yes, full | Partial (IB depth is weak; Bookmap explicitly does not recommend IB as its feed) | Best free paper-automation sandbox. |
 | **NinjaTrader / Tradovate sim + Bookmap direct trading** | Yes | Yes (Rithmic full depth, CME MBO) | The only path that automates *actual* Bookmap logic rather than a proxy. Bookmap trades directly through these. |
 | **TradersPost / similar bridge** | Broker-dependent | No | Webhook → broker. Convenient, adds a failure point. |
+| **Bookmap API + Bookmap simulator** | **Yes** — replay/sim mode or a demo account | **Yes**, natively | **Now the top recommendation.** Java add-ons (Python for L1), no stated limits on strategy logic. Automation and paper trading coexist. See `04-bookmap-platform-reference.md` §4. |
 | **Schwab Trader API** | **No — live only** | No | You would be debugging an algo with real money. Do not start here. |
 | Screen-scraping / UI automation of thinkorswim | n/a | No | Fragile, and against the spirit (check the platform's terms). Not recommended. |
 
 If your strategies are genuinely order-book driven, the honest conclusion is
 that thinkorswim paperMoney is the wrong venue for the *automation* and the
-right venue for the *measurement*. Do the measurement here; if the edge proves
-out, automate it on a Rithmic-fed sim where the input data actually exists.
+right venue for the *measurement* of the non-order-book parts.
+
+**Revised after reading Bookmap's own docs:** Bookmap ships an add-on API (Java
+JARs; Python for L1 add-ons) that supports arbitrary automated strategies, and
+those strategies can be run in replay/simulation mode or against a demo (paper
+money) account. That is the combination thinkorswim cannot give you —
+*automation and paper, on real recorded order-book data*. If your edge is
+order-flow based, build it there. Full detail in
+`04-bookmap-platform-reference.md`.
 
 ## 3. Build order (concrete, one week)
 
