@@ -1,0 +1,5 @@
+date,time,strategy,symbol,taken,direction,entry,stop,target,exit,size,r_dollars,pnl_dollars,fees_dollars,bm_phenomenon,bm_level_quality,bm_filter_pass,atr,notes
+2026-08-03,09:41,sweep_reversal,/ES,1,long,5612.25,5609.00,5620.00,5619.50,2,325.00,725.00,5.16,sweep,3,1,42.5,swept overnight low into cold zone then icebergs refilled
+2026-08-03,10:14,vwap_fade,/ES,1,short,5624.50,5628.00,5616.00,5628.00,2,350.00,-350.00,5.16,spoof,1,0,42.5,wall on the offer vanished before the touch - should have skipped
+2026-08-03,11:02,vwap_fade,/ES,0,short,5626.00,5629.50,5618.00,,2,350.00,0,0,none,1,0,42.5,skipped - no resting size at the level
+2026-08-04,09:35,orb_breakout,/ES,1,long,5640.00,5634.00,5652.00,5651.25,1,300.00,562.50,2.58,void,3,1,38.1,broke ORH into a liquidity void, no size overhead until 5652
